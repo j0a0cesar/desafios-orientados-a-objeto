@@ -1,5 +1,5 @@
 # desafios-orientados-a-objeto
-Alunos: Bruna Amaral Chapelin
+Alunos: Bruna Amaral Chapelin <b>
         João César Pádua Timóteo 
 Curso: Ciência da Computação 3ºP
 #
