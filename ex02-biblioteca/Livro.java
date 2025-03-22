@@ -3,13 +3,25 @@ public class Livro {
     private String autor;
     private int ano;
 
-    public String getTitulo(String titulo){
-        return titulo;
+    public Livro(String titulo, String autor, int ano){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
     }
-    public String getAutor(String autor){
-        return autor;
+
+    public String getTitulo(){
+        return this.titulo;
     }
-    public int getAno(int ano){
-        return ano;
+    public String getAutor(){
+        return this.autor;
     }
+    public int getAno(){
+        return this.ano;
+    }
+    public void exibirInfo(){
+        System.out.println("Título: "+getTitulo());
+        System.out.println("Autor: "+getAutor());
+        System.out.println("Ano: "+getAno());
+    }
+
 }
