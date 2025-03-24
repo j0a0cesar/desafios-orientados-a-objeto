@@ -60,7 +60,7 @@ public class Main {
             //verificação se a conta foi encontrada
             if (contaSelecionada == null) {
                 System.out.println("Conta não encontrada!");
-                continue; //pula a iteração atual, vai pedir o numero conta de novo
+                continue; //pula a iteração atual, vai pedir o numero da conta de novo
             }
 
             //menu
