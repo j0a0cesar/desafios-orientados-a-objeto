@@ -4,7 +4,7 @@ public class Pedido {
     private String endereco;
     private double valor;
 
-    // Construtor
+  
     public Pedido(Pizza pizzaEscolhida, String tamanho, String endereco) {
         this.pizzaEscolhida = pizzaEscolhida;
         this.tamanho = tamanho;
