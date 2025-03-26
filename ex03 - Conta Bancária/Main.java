@@ -42,7 +42,7 @@ public class Main {
         do {
             System.out.print("\nDigite o número da conta para acessar ou 0 para sair: ");
             int numContaSelecionada = input.nextInt();
-            input.nextLine(); //ver depois se vai bugar
+            input.nextLine();
 
             //condição de parada
             if (numContaSelecionada == 0) {
