@@ -8,6 +8,10 @@ Este projeto é parte de uma **atividade avaliativa** de **desafios de programa�
 
 A atividade consiste em **8 exercícios** e a responsabilidade de cada membro da dupla foi dividida da seguinte forma:
 
-- **Bruna Chapelin**: responsável pelos exercícios de números **ímpares**.
-- **João César**: responsável pelos exercícios de números **pares**.
+• **Bruna Chapelin**: responsável pelos exercícios de números **ímpares**.
+• **João César**: responsável pelos exercícios de números **pares**.
 
+## Tecnologias Utilizadas
+
+• Java
+• IDE: IntelliJ IDEA
