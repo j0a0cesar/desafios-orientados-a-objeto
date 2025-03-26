@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Este projeto é parte de uma **atividade avaliativa** de **desafios de programação orientada a objetos realizada realizada por **alunos do terceiro período de Ciência da Computação**. A atividade consiste em implementar diversos sistemas em Java, com foco em encapsulamento, manipulação de objetos e interação entre eles.
+Este projeto é parte de uma **atividade avaliativa** de **desafios de programação orientada a objetos** realizada por **alunos do terceiro período de Ciência da Computação**. A atividade consiste em implementar diversos sistemas em Java, com foco em encapsulamento, manipulação de objetos e interação entre eles.
 
 ## Estrutura do Projeto
 
