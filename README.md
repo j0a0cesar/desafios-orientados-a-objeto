@@ -6,7 +6,7 @@ Este projeto é parte de uma **atividade avaliativa** de **desafios de programa�
 
 ## Estrutura do Projeto
 
-A atividade consiste em **8 exercícios** e a responsabilidade de cada membro da dupla foi dividida da seguinte forma:
+A atividade contém **8 exercícios** e a responsabilidade de cada membro da dupla foi dividida da seguinte forma:
 
 • **Bruna Chapelin**: responsável pelos exercícios de números **ímpares**. <br>
 • **João César Timóteo**: responsável pelos exercícios de números **pares**.
