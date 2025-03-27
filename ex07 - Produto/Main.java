@@ -66,7 +66,7 @@ public class Main {
                     input.nextLine();
 
                     for (int i = 0; i < produtos.length; i++) {
-                        if (produtos[i] != null && produtos[i].codigo == codAlterar) {
+                        if (produtos[i] != null && produtos[i].getCodigo() == codAlterar) {
                             System.out.println("Escolha uma opção: ");
                             System.out.println("[1] Adicionar\n[2] Remover");
                             int escolha2 = input.nextInt();
@@ -89,7 +89,7 @@ public class Main {
                     System.out.print("Código do produto a ser removido: ");
                     int codRemover = input.nextInt();
                     for (int i = 0; i < produtos.length; i++) {
-                        if (produtos[i] != null && produtos[i].codigo == codRemover) {
+                        if (produtos[i] != null && produtos[i].getCodigo() == codRemover) {
                             //substituindo o produto removido pelo último da lista
                             produtos[i] = produtos[count - 1];
 
@@ -108,14 +108,14 @@ public class Main {
 
                     for (int i = 0; i < produtos.length; i++) {
                         if (produtos[i] != null) {
-                            System.out.println("Código: " + produtos[i].codigo);
-                            System.out.println("Nome: " + produtos[i].nome);
-                            System.out.println("Preço: R$" + produtos[i].preco);
-                            System.out.println("Quantidade: " + produtos[i].quantidade);
+                            System.out.println("Código: " + produtos[i].getCodigo());
+                            System.out.println("Nome: " + produtos[i].getNome());
+                            System.out.println("Preço: R$" + produtos[i].getPreco());
+                            System.out.println("Quantidade: " + produtos[i].getQuantidade());
                             System.out.println("-----------------------");
 
-                            valorTotal += produtos[i].preco * produtos[i].quantidade;
-                            quantidadeTotal += produtos[i].quantidade;
+                            valorTotal += produtos[i].getPreco() * produtos[i].getQuantidade();
+                            quantidadeTotal += produtos[i].getQuantidade();
                         }
                     }
                     //exibindo o valor total em estoque e quantidade total
