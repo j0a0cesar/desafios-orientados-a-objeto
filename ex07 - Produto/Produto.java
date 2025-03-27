@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Produto {
-    String nome;
-    int codigo;
-    int quantidade;
-    float preco;
+    private String nome;
+    private int codigo;
+    private int quantidade;
+    private float preco;
 
     Scanner input = new Scanner(System.in);
 
