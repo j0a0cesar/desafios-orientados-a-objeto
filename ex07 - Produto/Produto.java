@@ -16,6 +16,21 @@ public class Produto {
         this.preco = preco;
     }
 
+    //getters
+
+    public String getNome(){
+        return nome;
+    }
+    public int getCodigo(){
+        return codigo;
+    }
+    public int getQuantidade(){
+        return quantidade;
+    }
+    public float getPreco(){
+        return preco;
+    }
+
     public void adicionarQuantidade(int qtd) {
         this.quantidade += qtd;
     }
