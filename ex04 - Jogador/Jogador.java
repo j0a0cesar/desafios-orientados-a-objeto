@@ -7,6 +7,7 @@ public class Jogador {
         this.nome = nome;
         this.pontuacao = pontuacao;
         this.nivel = nivel;
+        ranks();
     }
     public String getNome(){
         return this.nome;
