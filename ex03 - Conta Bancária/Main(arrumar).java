@@ -25,7 +25,6 @@ public class Main {
         System.out.println("-------------- Bem-vindo! --------------");
 
         do {
-
             //menu
             System.out.println("\nSelecione a opção desejada: ");
             System.out.println("[1] Criar conta\n[2] Depositar saldo\n[3] Sacar saldo \n[4] Consultar Saldo\n[5] Sair");
@@ -34,6 +33,7 @@ public class Main {
 
             switch (op) {
                 case 1:
+                    //criação de contas
                     System.out.print("Digite o número da conta: ");
                     int numeroConta = input.nextInt();
                     input.nextLine();
@@ -47,56 +47,56 @@ public class Main {
                     contas.add(new ContaBancaria(numeroConta, nomeTitular, saldo));
 
                     System.out.println("Conta criada com sucesso!");
-
                     break;
                 case 2:
-                    System.out.println("Digite o valor do depósito: ");
-                    double deposito = input.nextDouble();
-                    contaSelecionada.depositar(deposito);
+                    //depositar
+                    ContaBancaria contaDep = selecionarConta(contas, input);
+                    if (contaDep != null) {
+                        System.out.print("Digite o valor do depósito: ");
+                        double deposito = input.nextDouble();
+                        contaDep.depositar(deposito);
+                    }
                     break;
                 case 3:
-                    System.out.println("Digite o valor que deseja sacar: ");
-                    double saque = input.nextDouble();
-                    contaSelecionada.sacar(saque);
+                    //sacar
+                    ContaBancaria contaSaq = selecionarConta(contas, input);
+                    if (contaSaq != null) {
+                        System.out.print("Digite o valor do saque: ");
+                        double saque = input.nextDouble();
+                        contaSaq.sacar(saque);
+                    }
                     break;
                 case 4:
-                    System.out.println("Saldo atual: R$" + contaSelecionada.getSaldo());
-                    return;
+                    //consultar saldo
+                    ContaBancaria contaSaldo = selecionarConta(contas, input);
+                    if (contaSaldo != null) {
+                        System.out.println("Saldo atual: R$" + contaSaldo.getSaldo());
+                    }
+                    break;
                 case 5:
+                    //sair
                     System.out.println("Saindo do sistema...");
                     input.close();
                     return;
             }
 
         } while (true);
-
-        //acessando a conta
-        do {
-            System.out.print("\nDigite o número da conta para acessar ou 0 para sair: ");
-            int numContaSelecionada = input.nextInt();
-            input.nextLine();
-
-            //condição de parada
-            if (numContaSelecionada == 0) {
-                System.out.println("Você saiu. Obrigado e volte sempre!");
-                break;
-            }
-
-            ContaBancaria contaSelecionada = null;
-            for (int i = 0; i < contas.length; i++) {
-                if ((numContaSelecionada) == contas[i].getNumeroConta()) {
-                    contaSelecionada = contas[i];
-                    break;
-                }
-            }
-            //verificação se a conta foi encontrada
-            if (contaSelecionada == null) {
-                System.out.println("Conta não encontrada!");
-                continue; //pula a iteração atual, vai pedir o numero da conta de novo
-            }
-
-
-
-        input.close();
     }
+
+    //metodo para selecionar conta
+    public static ContaBancaria selecionarConta (List < ContaBancaria > contas, Scanner input){
+        System.out.print("Digite o número da conta: ");
+        int numContaSelecionada = input.nextInt();
+        input.nextLine();
+
+        for (ContaBancaria conta : contas) {
+            if (conta.getNumeroConta() == numContaSelecionada) {
+                return conta;
+            }
+        }
+
+        System.out.println("Conta não encontrada!");
+        return null;
+    }
+
 }
