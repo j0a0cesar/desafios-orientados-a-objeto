@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /* Em uma tranquila cidade conhecida por sua paixão por automobilismo, um grupo de entusiastas de
@@ -19,93 +21,98 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        Carro[] carros = new Carro[3];
+        List<Carro> carros = new ArrayList<Carro>();
 
-        //registro dos carros
-        System.out.print("-------------- Bem-vindo! --------------");
-        for (int i = 0; i < 3; i++) {
-            System.out.println("\nCadastre seu carro em nosso sistema.");
-            System.out.print("Digite a marca: ");
-            String marca = input.nextLine();
+        System.out.println("-------------- Bem-vindo! --------------");
 
-            System.out.print("Digite o modelo: ");
-            String modelo = input.nextLine();
-
-            System.out.print("Digite a placa: ");
-            String placa = input.nextLine();
-
-            System.out.print("Digite o ano: ");
-            int ano = input.nextInt();
-            input.nextLine();
-
-            System.out.print("Digite a velocidade atual em km/h: ");
-            int velocidadeAtual = input.nextInt();
-            input.nextLine();
-
-            carros[i] = new Carro(marca, modelo, placa, ano, velocidadeAtual);
-
-            System.out.println("\nCarro registrado com sucesso!");
-        }
-
-        //escolhendo o carro
         do {
-            System.out.print("\nDigite a placa do carro para acessar ou 0 para sair: ");
-            String inputPlacaSelecionada = input.nextLine();
-
-            //condição de parada
-            if (inputPlacaSelecionada.equals("0")) {
-                System.out.println("Você saiu. Obrigado e volte sempre!");
-                break;
-            }
-
-            Carro placaSelecionada = null;
-            for (int i = 0; i < carros.length; i++) {
-                if ((inputPlacaSelecionada).equals(carros[i].getPlaca())) {
-                    placaSelecionada = carros[i];
-                    break;
-                }
-            }
-            //verificação se a placa foi encontrada
-            if (placaSelecionada == null) {
-                System.out.println("Carro não encontrado!");
-                continue; //pula a iteração atual, vai pedir a placa de novo
-            }
-
             //menu
             System.out.println("\nSelecione a opção desejada: ");
-            System.out.println("[1] Acelerar\n[2] Frear \n[3] Exibir informações do carro\n[4] Sair");
+            System.out.println("[1] Registrar carro\n[2] Acelerar\n[3] Frear \n[4] Exibir informações do carro\n[5] Sair");
             int op = input.nextInt();
+            input.nextLine();
 
             switch (op) {
                 case 1:
-                    System.out.println("Digite a velocidade que irá acelerar em km/h: ");
-                    int acelerar = input.nextInt();
+                    System.out.println("\nCadastre seu carro em nosso sistema.");
+                    System.out.print("Digite a marca: ");
+                    String marca = input.nextLine();
+
+                    System.out.print("Digite o modelo: ");
+                    String modelo = input.nextLine();
+
+                    System.out.print("Digite a placa: ");
+                    String placa = input.nextLine();
+
+                    System.out.print("Digite o ano: ");
+                    int ano = input.nextInt();
                     input.nextLine();
-                    placaSelecionada.acelerar(acelerar);
+
+                    System.out.print("Digite a velocidade atual em km/h: ");
+                    int velocidadeAtual = input.nextInt();
+                    input.nextLine();
+
+                    carros.add(new Carro(marca, modelo, placa, ano, velocidadeAtual));
+
+                    System.out.println("\nCarro registrado com sucesso!");
                     break;
                 case 2:
-                    System.out.println("Digite a velocidade que irá frear em km/h: ");
-                    int frear = input.nextInt();
-                    input.nextLine();
-                    placaSelecionada.frear(frear);
+                    Carro acelerarCarro = selecionarCarro(carros, input);
+                    if (acelerarCarro != null) {
+                        System.out.println("Digite a velocidade que irá acelerar em km/h: ");
+                        int acelerar = input.nextInt();
+                        input.nextLine();
+                        acelerarCarro.acelerar(acelerar);
+                    } else {
+                        System.out.println("Não foi possível realizar a ação. Carro inexistente.");
+                    }
                     break;
                 case 3:
-                    System.out.println("-------- Informações do veículo --------");
-                    System.out.println("Placa: " + placaSelecionada.getPlaca());
-                    System.out.println("Marca: " + placaSelecionada.getMarca());
-                    System.out.println("Modelo: " + placaSelecionada.getModelo());
-                    System.out.println("Ano: " + placaSelecionada.getAno());
-                    System.out.println("Velocidade Atual: " + placaSelecionada.getVelocidade());
-                    input.nextLine();
+                    Carro frearCarro = selecionarCarro(carros, input);
+                    if (frearCarro != null) {
+                        System.out.println("Digite a velocidade que irá frear em km/h: ");
+                        int frear = input.nextInt();
+                        input.nextLine();
+
+                        frearCarro.frear(frear);
+                        input.nextLine();
+                    } else {
+                        System.out.println("Não foi possível realizar a ação. Carro inexistente.");
+                    }
                     break;
                 case 4:
+                    Carro infoCarros = selecionarCarro(carros, input);
+                    if (infoCarros != null) {
+                        System.out.println("\n-------- Informações do veículo --------");
+                        System.out.println("Placa: " + infoCarros.getPlaca());
+                        System.out.println("Marca: " + infoCarros.getMarca());
+                        System.out.println("Modelo: " + infoCarros.getModelo());
+                        System.out.println("Ano: " + infoCarros.getAno());
+                        System.out.println("Velocidade Atual: " + infoCarros.getVelocidade());
+                    } else {
+                        System.out.println("Não foi possível realizar a ação. Carro inexistente.");
+                    }
+                    break;
+                case 5:
                     System.out.println("Saindo do sistema...");
                     input.close();
                     return;
             }
 
         } while (true);
-
-        input.close();
     }
+        //metodo para selecionar o carro
+        public static Carro selecionarCarro(List <Carro> carros, Scanner input){
+            System.out.print("Digite a placa do carro: ");
+            String placaSelecionada = input.nextLine();
+
+            for (Carro carro : carros) {
+                if (carro.getPlaca().equals(placaSelecionada)) {
+                    return carro;
+                }
+            }
+
+            System.out.println("Carro não encontrado!");
+            return null;
+        }
 }
