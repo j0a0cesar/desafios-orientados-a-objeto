@@ -34,13 +34,13 @@ public class Carro {
         return velocidadeAtual;
     }
 
-  //metodo para acelerar
+    //metodo para acelerar
     public void acelerar(int acelerar){
         velocidadeAtual += acelerar;
         System.out.println("Você acelerou " + acelerar + "km/h! Sua velocidade atual é: " + velocidadeAtual);
     }
-  
-  //metodo para frear
+
+    //metodo para frear
     public void frear(int frear){
         velocidadeAtual -= frear;
         System.out.println("Você freou " + frear + "km/h! Sua velocidade atual é: " + velocidadeAtual);
