@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /* Em uma pequena cidade, um desenvolvedor entusiasta decide criar um sistema para ajudar a
@@ -18,25 +20,55 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        ContaBancaria[] contas = new ContaBancaria[3];
+        List<ContaBancaria> contas = new ArrayList<ContaBancaria>();
 
-        //criação das contas
         System.out.println("-------------- Bem-vindo! --------------");
-        for (int i = 0; i < 3; i++) {
-            System.out.println("\nCriando conta " + (i + 1) + ":");
-            System.out.print("Digite o número da conta: ");
-            int numeroConta = input.nextInt();
+
+        do {
+
+            //menu
+            System.out.println("\nSelecione a opção desejada: ");
+            System.out.println("[1] Criar conta\n[2] Depositar saldo\n[3] Sacar saldo \n[4] Consultar Saldo\n[5] Sair");
+            int op = input.nextInt();
             input.nextLine();
 
-            System.out.print("Digite o nome do titular: ");
-            String nomeTitular = input.nextLine();
+            switch (op) {
+                case 1:
+                    System.out.print("Digite o número da conta: ");
+                    int numeroConta = input.nextInt();
+                    input.nextLine();
 
-            System.out.print("Digite o saldo inicial: ");
-            double saldo = input.nextDouble();
+                    System.out.print("Digite o nome do titular: ");
+                    String nomeTitular = input.nextLine();
 
-            contas[i] = new ContaBancaria(numeroConta, nomeTitular, saldo);
-            System.out.println("Conta criada com sucesso!");
-        }
+                    System.out.print("Digite o saldo inicial: ");
+                    double saldo = input.nextDouble();
+
+                    contas.add(new ContaBancaria(numeroConta, nomeTitular, saldo));
+
+                    System.out.println("Conta criada com sucesso!");
+
+                    break;
+                case 2:
+                    System.out.println("Digite o valor do depósito: ");
+                    double deposito = input.nextDouble();
+                    contaSelecionada.depositar(deposito);
+                    break;
+                case 3:
+                    System.out.println("Digite o valor que deseja sacar: ");
+                    double saque = input.nextDouble();
+                    contaSelecionada.sacar(saque);
+                    break;
+                case 4:
+                    System.out.println("Saldo atual: R$" + contaSelecionada.getSaldo());
+                    return;
+                case 5:
+                    System.out.println("Saindo do sistema...");
+                    input.close();
+                    return;
+            }
+
+        } while (true);
 
         //acessando a conta
         do {
@@ -63,32 +95,7 @@ public class Main {
                 continue; //pula a iteração atual, vai pedir o numero da conta de novo
             }
 
-            //menu
-            System.out.println("\nSelecione a opção desejada: ");
-            System.out.println("[1] Depositar saldo\n[2] Sacar saldo \n[3] Consultar Saldo\n[4] Sair");
-            int op = input.nextInt();
 
-            switch (op) {
-                case 1:
-                    System.out.println("Digite o valor do depósito: ");
-                    double deposito = input.nextDouble();
-                    contaSelecionada.depositar(deposito);
-                    break;
-                case 2:
-                    System.out.println("Digite o valor que deseja sacar: ");
-                    double saque = input.nextDouble();
-                    contaSelecionada.sacar(saque);
-                    break;
-                case 3:
-                    System.out.println("Saldo atual: R$" + contaSelecionada.getSaldo());
-                    break;
-                case 4:
-                    System.out.println("Saindo do sistema...");
-                    input.close();
-                    return;
-            }
-
-        } while (true); 
 
         input.close();
     }
