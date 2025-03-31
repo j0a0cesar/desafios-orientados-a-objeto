@@ -8,10 +8,10 @@ public class Pizza {
             this.valor = valor;
         }
         public String getNome(){
-            return this.nome;
+            return nome;
         }
         public double getValor(){
-            return this.valor;
+            return valor;
         }
 
 
