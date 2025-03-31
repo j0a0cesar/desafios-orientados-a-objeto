@@ -90,7 +90,7 @@ public class Main {
     }
 
     //metodo para selecionar conta
-    public static ContaBancaria selecionarConta (List < ContaBancaria > contas, Scanner input){
+    public static ContaBancaria selecionarConta (List <ContaBancaria> contas, Scanner input){
         System.out.print("Digite o número da conta: ");
         int numContaSelecionada = input.nextInt();
         input.nextLine();
