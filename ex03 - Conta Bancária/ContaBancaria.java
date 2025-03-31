@@ -14,10 +14,6 @@ public class ContaBancaria {
         return numeroConta;
     }
 
-    public String getNomeTitular() {
-        return nomeTitular;
-    }
-
     //getter para visualizar saldo
     public double getSaldo() {
         return saldo;
