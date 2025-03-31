@@ -55,6 +55,8 @@ public class Main {
                         System.out.print("Digite o valor do depósito: ");
                         double deposito = input.nextDouble();
                         contaDep.depositar(deposito);
+                    } else {
+                        System.out.println("Não foi possível realizar o depósito. Conta inexistente.");
                     }
                     break;
                 case 3:
@@ -64,6 +66,8 @@ public class Main {
                         System.out.print("Digite o valor do saque: ");
                         double saque = input.nextDouble();
                         contaSaq.sacar(saque);
+                    } else {
+                        System.out.println("Não foi possível realizar o saque. Conta inexistente.");
                     }
                     break;
                 case 4:
@@ -71,6 +75,8 @@ public class Main {
                     ContaBancaria contaSaldo = selecionarConta(contas, input);
                     if (contaSaldo != null) {
                         System.out.println("Saldo atual: R$" + contaSaldo.getSaldo());
+                    } else {
+                        System.out.println("Não foi possível consultar o saldo. Conta inexistente.");
                     }
                     break;
                 case 5:
