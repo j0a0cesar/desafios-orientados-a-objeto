@@ -17,7 +17,6 @@ public class Produto {
     }
 
     //getters
-
     public String getNome(){
         return nome;
     }
